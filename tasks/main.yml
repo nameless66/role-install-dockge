@@ -1,0 +1,21 @@
+---
+
+- name: create stacks directory
+  ansible.builtin.file:
+    path: /opt/stacks
+    state: directory
+    mode: '0750'
+
+- name: create stacks directory
+  ansible.builtin.file:
+    path: /opt/dockge
+    state: directory
+    mode: '0750'
+
+- name: create compose file for dockge
+  template:
+    src: templates/compose.yml.j2
+    dest: /opt/dockge/compose.yaml
+  notify:
+    - compose down
+    - compose up
