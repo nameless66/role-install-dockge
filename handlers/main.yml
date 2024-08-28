@@ -1,12 +1,12 @@
 ---
 
-- name: compose down
+- name: Compose down
   community.docker.docker_compose:
     project_src: /opt/dockge
     project_name: dockge
     state: absent
 
-- name: compose up
+- name: Compose up
   community.docker.docker_compose:
     project_src: /opt/dockge
     project_name: dockge
